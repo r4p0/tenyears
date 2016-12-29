@@ -22,16 +22,31 @@
 <body>
 {{content}}
 
-<div>test1</div>
-<div>size={{site.posts.size}}</div>
-<div>test2</div>
-{% for i in (0..site.posts.size) %}
-  i:{{ site.posts[i] }}<br/>{{ site.posts[i].url }}<br/>
-	{% if site.posts[i] == page %}
-    res:<br/>
-    {{ i |plus:1}}<br/>
-    {{ i |minus:1}}<br/>
+<div class="footer">
+<!-- 上一章 -->
+{% if page.previous %}
+  <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}"><span>&laquo; 上一章</span></a>
+{% else %}
+  <span>&laquo; 上一章</span>
+{% endif %}
+
+<!-- 页码显示 -->
+<span>
+{% for i in (1..site.posts.size) %}
+  {% if page == site.posts[i] %}
+    <em>{{ i | plus : 1 }}&#47;{{ site.posts.size }}</em>
+    {% break %}
   {% endif %}
 {% endfor %}
+</span>
+
+<!-- 下一章 -->
+{% if page.next %}
+  <a href="{{ page.next.url | prepend: site.baseurl }}">下一章 &raquo;</a>
+{% else %}
+  <span>下一章 &raquo;</span>
+{% endif %}
+</div>
+
 </body>
 </html>
