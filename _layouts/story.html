@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="{{ site.baseurl }}/css/clear.css">
-    <style>body{ background: #ccc; } .content{ font-family: "MicrosoftYaHei"; font-size: 14px; color: #333; } .center{ text-align: center; } .content h1{ font-size: 2em; } .content h2{ font-size: 1.5em; } .content .article p{ text-indent: 2em; } .content .article{ padding: 10px; } .footer{ padding: 12px; text-align: center; }</style></head>
+    <style>body{ background: #ccc; } .content{ font-family: "MicrosoftYaHei"; font-size: 14px; color: #333; } .center{ text-align: center; } .content h1{ font-size: 2em; } .content h2{ font-size: 1.5em; } .content .article p{ text-indent: 2em; } .content .article{ padding: 10px; } .footer{ padding: 12px; text-align: center; } .disable{ color: #666; }</style></head>
   
   <body>
     <div class="content">
@@ -17,12 +17,12 @@
       <!-- 上一章 -->{% if page.previous %}
       <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}">
         <span>&laquo; 上一章</span></a>{% else %}
-      <span>&laquo; 上一章</span>{% endif %}
+      <span class="disable">&laquo; 上一章</span>{% endif %}
       <!-- 页码显示 -->
       <span>{% for post in site.posts %} {% if page == post %} {{ site.posts.size | minus : forloop.index0 }}&#47;{{ site.posts.size }} {% break %} {% endif %} {% endfor %}</span>
       <!-- 下一章 -->{% if page.next %}
       <a href="{{ page.next.url | prepend: site.baseurl }}">
         <span>下一章 &raquo;</span></a>{% else %}
-      <span>下一章 &raquo;</span>{% endif %}</div></body>
+      <span class="disable">下一章 &raquo;</span>{% endif %}</div></body>
 
 </html>
