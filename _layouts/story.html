@@ -32,9 +32,9 @@
 
 <!-- 页码显示 -->
 <span>
-{% for i in (0..site.posts.size) %}
-  {% if page == site.posts[i] %}
-    <em>{{ site.posts.size | minus : i }}&#47;{{ site.posts.size }}</em>
+{% for post in site.posts %}
+  {% if page == post %}
+    <em>{{ site.posts.size | minus : forloop.index0 }}&#47;{{ site.posts.size }}</em>
     {% break %}
   {% endif %}
 {% endfor %}
