@@ -25,7 +25,7 @@
 <div>test1</div>
 <div>size={{site.posts.size}}</div>
 <div>test2</div>
-{% for i in (0..site.posts.size|minus:1) %}
+{% for i in (0..site.posts.size) %}
   i:{{ site.posts[i] }}<br/>{{ site.posts[i].url }}<br/>
 	{% if site.posts[i] == page %}
     res:<br/>
