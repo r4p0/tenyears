@@ -23,17 +23,14 @@
 {{content}}
 
 <div>test1</div>
-{% for post in site.posts %}
-	{% if post == page %}
-  aaa
-  {% endif %}
-{% endfor %}
-
+<div>size={{site.posts.size}}</div>
 <div>test2</div>
-{% for i in (1..5) %}
-  {% if i == 3 %}
-    {{ i - 1 }}
-    {{ i + 1 }}
+{% for i in (1..site.posts.size) %}
+  i:{{ i }}<br/>
+	{% if site.posts[i] == page %}
+    res:<br/>
+    {{ i |plus:1}}<br/>
+    {{ i |minus:1}}<br/>
   {% endif %}
 {% endfor %}
 </body>
